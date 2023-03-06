@@ -1,5 +1,6 @@
 class AuthersController < ApplicationController
-
+  before_action :exists, only: %i[update show destroy]
+  
   def index
     render json: { authers: Auther.all }, status: :ok
   end
