@@ -1,6 +1,6 @@
 class AuthersController < ApplicationController
   before_action :exists, only: %i[update show destroy]
-  
+
   def index
     render json: { authers: Auther.all }, status: :ok
   end
@@ -10,7 +10,7 @@ class AuthersController < ApplicationController
   end
 
   def create
-    @auther = auther.new(auther_params)
+    @auther = Auther.new(auther_params)
     @auther.save!
     render json: { auther: @auther }, status: :ok
   rescue => e
