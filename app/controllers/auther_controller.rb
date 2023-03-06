@@ -1,0 +1,2 @@
+class AutherController < ApplicationController
+end
