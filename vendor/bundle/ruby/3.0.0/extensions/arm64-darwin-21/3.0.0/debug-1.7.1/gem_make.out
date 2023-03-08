@@ -1,0 +1,16 @@
+current directory: /Users/pradeep/Development/ror/bookstore/vendor/bundle/ruby/3.0.0/gems/debug-1.7.1/ext/debug
+/Users/pradeep/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/pradeep/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20230308-82500-sj07sh.rb extconf.rb
+creating Makefile
+
+current directory: /Users/pradeep/Development/ror/bookstore/vendor/bundle/ruby/3.0.0/gems/debug-1.7.1/ext/debug
+make "DESTDIR=" clean
+
+current directory: /Users/pradeep/Development/ror/bookstore/vendor/bundle/ruby/3.0.0/gems/debug-1.7.1/ext/debug
+make "DESTDIR="
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+
+current directory: /Users/pradeep/Development/ror/bookstore/vendor/bundle/ruby/3.0.0/gems/debug-1.7.1/ext/debug
+make "DESTDIR=" install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 debug.bundle ./.gem.20230308-82500-w0nh0t/debug
