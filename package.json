@@ -1,0 +1,19 @@
+{
+  "name": "bookstore",
+  "private": true,
+  "dependencies": {
+    "@hotwired/turbo-rails": "^7.3.0",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "esbuild": "^0.17.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.58.3"
+  },
+  "scripts": {
+    "build": "esbuild --bundle app/javascript/application.js --outfile=app/assests/javascripts/application.js",
+    "watch": "esbuild --watch --bundle app/javascript/application.js --outfile=app/assets/javascripts/application.js",
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  }
+}

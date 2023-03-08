@@ -18,6 +18,9 @@ gem "puma", "~> 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
+# Bundle and transpile javascripts
+gem "jsbundling-rails"
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
@@ -49,6 +52,7 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'devise-jwt', '~> 0.9.0'
 gem 'rack-cors'
+gem 'cssbundling-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
