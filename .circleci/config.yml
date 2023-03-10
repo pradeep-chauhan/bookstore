@@ -20,7 +20,7 @@ jobs:
       - run: gem install bundler:2.4.7
       - run: bundle install
       - run: yarn install
-      - run: SECRET_KEY_BASE=$SECRET_KEY_BASE RAILS_ENV=test rails db:create db:migrate db:seed
+      - run: SECRET_KEY_BASE=${{ env.SECRET_KEY_BASE }} RAILS_ENV=test rails db:create db:migrate db:seed
       - run: bundle exec rspec
 
 workflows:
