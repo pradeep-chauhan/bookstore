@@ -33,7 +33,7 @@ class BooksController < ApplicationController
   private
 
   def exists
-    @book = book.find_by_id(params[:id])
+    @book = Book.find_by_id(params[:id])
     render json: { error: 'book is not found' }, status: :not_found unless @book.present?
   end
 

@@ -5,46 +5,26 @@ jobs:
     docker:
       - image: circleci/ruby:3.0.0-node-browsers
         environment:
-          POSTGRES_USER: myuser
-          POSTGRES_PASSWORD: mypassword
-    working_directory: ~/repo
+          LOCAL_PG_USERNAME: root
+          POSTGRES_DB: bookstore_test
+          LOCAL_PG_PASSWORD: abcd1234
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: bookstore_test
+          POSTGRES_PASSWORD: abcd1234
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install -y postgresql-client
-      - run:
-          name: Install yarn and esbuild
-          command: |
-            sudo npm install -g yarn
-            sudo npm install -g esbuild
-      - run:
-          name: Install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3
-            yarn install
-      - run:
-          name: Setup database
-          command: |
-            bundle exec rails db:create
-            bundle exec rails db:migrate
-      - run:
-          name: Run tests
-          command: |
-            bundle exec rspec
-          environment:
-            RAILS_ENV: test
-            NODE_ENV: test
-      - run:
-          name: Build ReactJS with esbuild
-          command: |
-            esbuild app/javascript/packs/application.js --bundle --minify --outfile=public/assets/application.js --define:process.env.NODE_ENV='"production"'
-            esbuild app/javascript/packs/application.js --bundle --minify --outfile=public/assets/application.js --define:process.env.NODE_ENV='"development"' --watch
-          background: true
-      - store_artifacts:
-          path: ~/repo/tmp/screenshots/
-          destination: screenshots
+      - run: gem install rails -v 7.0.0
+      - run: gem install bundler:2.4.7
+      - run: bundle install
+      - run: yarn install
+      - run: rails db:create db:migrate RAILS_ENV=test
+      - run: bundle exec rspec
 
 workflows:
-  version: 2.1
-  build:
+  version: 2
+  build-and-test:
     jobs:
       - build
+      

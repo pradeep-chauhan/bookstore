@@ -50,7 +50,7 @@ gem "bootsnap", require: false
 
 # Use for authentication
 gem 'devise'
-gem 'devise-jwt', '~> 0.9.0'
+gem 'devise-jwt'
 gem 'rack-cors'
 gem 'cssbundling-rails'
 

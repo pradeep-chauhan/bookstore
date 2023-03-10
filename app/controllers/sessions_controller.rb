@@ -1,6 +1,7 @@
 class SessionsController < Devise::SessionsController
   respond_to :json
-    
+  skip_before_action :authenticate_user!, only: [:render_resource, :validation_error]
+  
   private
 
   def respond_with(resource, _opts = {})

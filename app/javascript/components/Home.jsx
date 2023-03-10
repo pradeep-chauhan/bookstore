@@ -1,16 +1,22 @@
-import * as React from 'react'
-import * as ReactDom from 'react-dom'
+import * as React from "react";
+import * as ReactDom from "react-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import Login from "./Login";
 
 const Home = () => {
   return (
-    <div className='container'>
-      <h1>Hello, React with Rails 7 Using esbuild</h1>
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+      </Routes>
+    </Router>
+  );
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDom.render(<Home />, document.getElementById('root'))
-})
+document.addEventListener("DOMContentLoaded", () => {
+  ReactDom.render(<Home />, document.getElementById("root"));
+});
 
-export default Home
+export default Home;

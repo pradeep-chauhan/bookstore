@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  # get '*path', to: 'home#index', via: :all 
   resources :users, only: %i[index show]
 
     devise_for :users,
