@@ -7,12 +7,12 @@ jobs:
         environment:
           LOCAL_PG_USERNAME: root
           POSTGRES_DB: bookstore_test
-          LOCAL_PG_PASSWORD: abcd1234
+          LOCAL_PG_PASSWORD: root
       - image: circleci/postgres:latest
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: bookstore_test
-          POSTGRES_PASSWORD: abcd1234
+          POSTGRES_PASSWORD: root
     steps:
       - checkout
       - run: gem install rails -v 7.0.0
