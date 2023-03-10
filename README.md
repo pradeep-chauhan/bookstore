@@ -1,17 +1,35 @@
-# README
+# BOOKSTORE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample project for bookstore
 
-Things you may want to cover:
+* Prerequisites
+  Before starting, ensure that you have the following software installed on your system:
 
-* Ruby version = 3.0
+  - Ruby 3.0
+  - Rails 7.0
+  - Node.js (version 14 or later)
+  - PostgreSQL (version 10 or later)
 
-* Rails version = 7.0
+* Clone repositry
+  - `git clone https://github.com/pradeep-chauhan/bookstore.git`
+
+* Bundle install
+  - `bundle install`
 
 * Database setup
-  rails db:create
-  rails db:migrate
+  - `rails db:create`
+  - `rails db:migrate`
 
-  # Seed Data
-  rails db:seed
+* Seed Data
+  - `rails db:seed`
+
+*  Create build and watch
+  - `npm run build && npm run watch`
+
+* Start server
+  - `./bin/dev`
+
+* Environment Variables
+  - SECRET_KEY_BASE = ''
+  - POSTGRES_USER = ''
+  - POSTGRES_PASSWORD = ''
