@@ -5,15 +5,15 @@ jobs:
     docker:
       - image: circleci/ruby:3.0.0-node-browsers
         environment:
-          LOCAL_PG_USERNAME: root
+          POSTGRES_USER: root
           POSTGRES_DB: bookstore_test
-          LOCAL_PG_PASSWORD: root
+          POSTGRES_PASSWORD: root
+          SECRET_KEY_BASE: 9223f33954aed00f0161d4868f321f44be727eb4420e53e8ff759a2273a43d6ccfdd2cbb7ddd607ca0fbfe61df2e68d0a2b24eda52f338530089bbc35af5e0aa
       - image: circleci/postgres:latest
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: bookstore_test
           POSTGRES_PASSWORD: root
-          SECRET_KEY_BASE: 9223f33954aed00f0161d4868f321f44be727eb4420e53e8ff759a2273a43d6ccfdd2cbb7ddd607ca0fbfe61df2e68d0a2b24eda52f338530089bbc35af5e0aa
     steps:
       - checkout
       - run: gem install rails -v 7.0.0
