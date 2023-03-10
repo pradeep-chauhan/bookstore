@@ -7,25 +7,28 @@ jobs:
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: bookstore_test
-          POSTGRES_PASSWORD: root
-          SECRET_KEY_BASE: 0b62060671e479bbaf1635e3121e7ef2183b137abf16a6160bb9ba493d94e21b00223cbda6e7a539fe8f05f99ff9368919d9282e628420538cd053a16fd71f5d
+          POSTGRES_PASSWORD: abcd1234
       - image: circleci/postgres:latest
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: bookstore_test
-          POSTGRES_PASSWORD: root
+          POSTGRES_PASSWORD: abcd1234
     steps:
       - checkout
       - run: gem install rails -v 7.0.0
       - run: gem install bundler:2.4.7
       - run: bundle install
       - run: yarn install
-      - run: SECRET_KEY_BASE=${SECRET_KEY_BASE} RAILS_ENV=test rails db:create db:migrate db:seed
+      - run: echo "bb0aca5686c48290d3293afaeedbf7a7" > config/master.key
+      - run: cat config/master.key
+      - run: rails db:create db:migrate RAILS_ENV=test
       - run: bundle exec rspec
+      - store_artifacts:
+          path: public/coverage
+          destination: coverage
 
 workflows:
   version: 2
   build-and-test:
     jobs:
       - build
-      
