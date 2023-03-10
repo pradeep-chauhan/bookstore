@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-  # get '*path', to: 'home#index', via: :all 
+  get '/dashboard', to: 'home#index'
   resources :users, only: %i[index show]
 
     devise_for :users,
